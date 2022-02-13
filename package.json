@@ -4,12 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
-=======
-    "test": "node ./test/sample.js",
-    "start": "node app.js"
->>>>>>> feature/questions
   },
   "repository": {
     "type": "git",
@@ -25,3 +20,4 @@
     "inquirer": "^8.2.0"
   }
 }
+
