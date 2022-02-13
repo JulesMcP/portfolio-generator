@@ -1,10 +1,13 @@
+const fs = require('fs'),
 const inquirer = require('inquirer');
+const generatePage = require('./src/page-template');
+
 const promptUser = () => {
   return inquirer.prompt([
     {
       type: 'input',
       name: 'name',
-      message: 'What is your name?(Required)',
+      message: 'What is your name? (Required)',
       validate: nameInput => {
         if (nameInput)  {
           return true;
@@ -37,13 +40,7 @@ const promptUser = () => {
       type: 'input',
       name: 'about',
       message: 'Provide some information about yourself:',
-      when: ({ confirmAbout }) => {
-        if (confirmAbout) {
-          return true;          
-        } else {
-          return false;
-        }
-      }
+      when: ({ confirmAbout }) => confirmAbout
     }
   ]);
 };
@@ -132,6 +129,13 @@ promptUser()
   .then(promptProject)
   .then(portfolioData => {
     console.log(portfolioData);
-  });
+      // will be uncommented in lesson 4
+    // const pageHTML = generatePage(portfolioData);
+    // fs.writeFile('./index.html', pageHTML, err => {
+    //   if (err) throw new Error(err);
+    //   console.log('Page created! Check out index.html in this directory to see it!');
+    // });
+  });
+ 
 
 
